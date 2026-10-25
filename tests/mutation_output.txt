@@ -1,0 +1,9 @@
+caught   ( 1562 failing checks)  topo: arc into an ACTIVE vertex is not treated as a cycle
+caught   (  532 failing checks)  dag: relaxes edges out of unreachable vertices
+caught   (  701 failing checks)  kruskal: processes edges from the heaviest to the lightest
+caught   (  307 failing checks)  scc: repeated condensation pairs are not removed
+caught   (  444 failing checks)  prim: does not restart in the next component
+caught   ( 1040 failing checks)  dsu: 'largest' is never updated
+caught   (    1 failing checks)  route: parent edge direction is not checked and ids of reverse edges are accepted
+survived (    0 failing checks)  dsu: union by size attaches the LARGER tree below the smaller (performance only)  [expected: output-equivalent]
+7 of 7 deliberate bugs were detected

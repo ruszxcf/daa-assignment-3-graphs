@@ -1,0 +1,48 @@
+{"name":"dsu: assignment example","states":[[3,2],[2,3],[2,3],[2,3]]}
+{"name":"dsu: empty graph","states":[]}
+{"name":"dsu: no operations","states":[]}
+{"name":"dsu: single vertex self-unions","states":[[1,1],[1,1]]}
+{"name":"dsu: repeated and reversed unions","states":[[2,2],[2,2],[2,2]]}
+{"name":"dsu: two big components merge","states":[[5,2],[4,2],[3,2],[2,4],[1,6]]}
+{"name":"kruskal: assignment example","cost":5,"components":2}
+{"name":"prim: assignment example","cost":5,"components":2}
+{"name":"kruskal: empty graph","cost":0,"components":0}
+{"name":"prim: empty graph","cost":0,"components":0}
+{"name":"kruskal: no edges","cost":0,"components":3}
+{"name":"prim: no edges","cost":0,"components":3}
+{"name":"kruskal: loops, parallel edges, negative weights","cost":3,"components":1}
+{"name":"prim: loops, parallel edges, negative weights","cost":3,"components":1}
+{"name":"kruskal: tied optimum (triangle)","cost":2,"components":1}
+{"name":"prim: tied optimum (triangle)","cost":2,"components":1}
+{"name":"kruskal: sum beyond 32 bit","cost":3000000000,"components":1}
+{"name":"prim: sum beyond 32 bit","cost":3000000000,"components":1}
+{"name":"kruskal: sum below -32 bit","cost":-2000000000,"components":1}
+{"name":"prim: sum below -32 bit","cost":-2000000000,"components":1}
+{"name":"kruskal: two components + isolated + loop component","cost":10,"components":4}
+{"name":"prim: two components + isolated + loop component","cost":10,"components":4}
+{"name":"kruskal: heavy chords never replace the light path","cost":-9,"components":1}
+{"name":"prim: heavy chords never replace the light path","cost":-9,"components":1}
+{"name":"scc: assignment example","groups":[[0,1],[2],[3]],"condensation":[[0,2],[2,3]]}
+{"name":"scc: empty graph","groups":[],"condensation":[]}
+{"name":"scc: isolated vertices","groups":[[0],[1],[2]],"condensation":[]}
+{"name":"scc: duplicate edges and loops","groups":[[0,1],[2]],"condensation":[[0,2]]}
+{"name":"scc: one big cycle","groups":[[0,1,2,3]],"condensation":[]}
+{"name":"scc: two cycles joined by a duplicated link","groups":[[0,1],[2,3],[4],[5]],"condensation":[[0,2],[2,4],[4,5]]}
+{"name":"scc: edges listed against the DFS direction","groups":[[0,1,2,3,4]],"condensation":[]}
+{"name":"topo: assignment example","acyclic":true}
+{"name":"topo: empty graph","acyclic":true}
+{"name":"topo: self-loop","acyclic":false}
+{"name":"topo: cycle in a later component","acyclic":false}
+{"name":"topo: diamond (edge into a finished vertex)","acyclic":true}
+{"name":"topo: parallel edges and isolated vertex","acyclic":true}
+{"name":"dag: assignment example","acyclic":true,"distance":[0,3,-4,0,null]}
+{"name":"dag: cycle unreachable from the source","acyclic":false,"distance":[]}
+{"name":"dag: distance -1 is not 'unreachable'","acyclic":true,"distance":[0,-1,null]}
+{"name":"dag: negative edge out of an unreachable vertex","acyclic":true,"distance":[0,null,7]}
+{"name":"dag: source in the middle","acyclic":true,"distance":[null,0,1,2]}
+{"name":"dag: equal shortest paths","acyclic":true,"distance":[0,1,1,2]}
+{"name":"dag: parallel edges","acyclic":true,"distance":[0,3]}
+{"name":"dag: 64-bit distances","acyclic":true,"distance":[0,-1000000000,-2000000000,-3000000000]}
+{"name":"dag: single vertex","acyclic":true,"distance":[0]}
+{"name":"dag: self-loop on the source","acyclic":false,"distance":[]}
+{"name":"dag: edges listed in reverse topological order","acyclic":true,"distance":[3,2,1,0]}

@@ -1,0 +1,55 @@
+## reachable target (assignment example, target 3)
+request       : {"task":"dag","n":5,"source":0,"edges":[[0,1,3],[0,2,8],[1,2,-7],[2,3,4]]}
+distance      : [0, 3, -4, 0, null]
+parent_edge   : [-1, 0, 2, 3, -1]
+target        : 3  (source = 0)
+route         : [0, 1, 2, 3]
+edge ids      : [0, 2, 3]  [#0 = 0->1 (w=3), #2 = 1->2 (w=-7), #3 = 2->3 (w=4)]
+check         : directions correct, total weight 0 == distance 0 -> true
+
+## the source itself (target 0)
+request       : {"task":"dag","n":5,"source":0,"edges":[[0,1,3],[0,2,8],[1,2,-7],[2,3,4]]}
+distance      : [0, 3, -4, 0, null]
+parent_edge   : [-1, 0, 2, 3, -1]
+target        : 0  (source = 0)
+route         : [0]
+edge ids      : [] (no edges, the source itself)
+check         : directions correct, total weight 0 == distance 0 -> true
+
+## unreachable target (vertex 4)
+request       : {"task":"dag","n":5,"source":0,"edges":[[0,1,3],[0,2,8],[1,2,-7],[2,3,4]]}
+distance      : [0, 3, -4, 0, null]
+parent_edge   : [-1, 0, 2, 3, -1]
+target        : 4  (source = 0)
+route         : []
+edge ids      : null (unreachable)  -> helper returns an EMPTY route
+check         : empty route for an unreachable target = true
+
+## parallel edges: ids 0 and 1 are equally cheap (5), id 2 is dearer (9)
+request       : {"task":"dag","n":3,"source":0,"edges":[[0,1,5],[0,1,5],[0,1,9],[1,2,1]]}
+distance      : [0, 5, 6]
+parent_edge   : [-1, 0, 3]
+target        : 2  (source = 0)
+route         : [0, 1, 2]
+edge ids      : [0, 3]  [#0 = 0->1 (w=5), #3 = 1->2 (w=1)]
+check         : directions correct, total weight 6 == distance 6 -> true
+
+## equal shortest paths: 0-1-3 and 0-2-3 both cost 2
+request       : {"task":"dag","n":4,"source":0,"edges":[[0,1,1],[1,3,1],[0,2,1],[2,3,1]]}
+distance      : [0, 1, 1, 2]
+parent_edge   : [-1, 0, 2, 3]
+target        : 3  (source = 0)
+route         : [0, 2, 3]
+edge ids      : [2, 3]  [#2 = 0->2 (w=1), #3 = 2->3 (w=1)]
+check         : directions correct, total weight 2 == distance 2 -> true
+
+## source in the middle, negative weights
+request       : {"task":"dag","n":6,"source":2,"edges":[[0,2,9],[2,3,-4],[3,4,2],[2,4,1],[4,5,-6]]}
+distance      : [null, null, 0, -4, -2, -8]
+parent_edge   : [-1, -1, -1, 1, 2, 4]
+target        : 5  (source = 2)
+route         : [2, 3, 4, 5]
+edge ids      : [1, 2, 4]  [#1 = 2->3 (w=-4), #2 = 3->4 (w=2), #4 = 4->5 (w=-6)]
+check         : directions correct, total weight -8 == distance -8 -> true
+
+ALL ROUTE CHECKS PASSED
